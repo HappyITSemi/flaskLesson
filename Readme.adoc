@@ -1,0 +1,42 @@
+== Flaskとは
+シングルファイル・フレームワーク！！！
+1ファイルで、アプリケーションを動かす。
+
+== 仮想環境の作成ーvenvは、PC全体に対しての環境管理
+①環境を作成する
+$ python3 -m venv venv
+== プロジェクト環境ごとに専用の環境を作成する
+②環境をアクティブにする
+$ pip install pipenv
+$ pipenv --version
+$ pipenv --three
+$ pipenv shell
+$ . venv/bin/activate
+
+$ pipenv Flask
+
+$ pip install Flask
+
+== Flask-SQLAlchemy
+https://www.sqlalchemy.org/
+- dialect+driver://<ユーザー名>:<パスワード>@<ホスト>:<ポート>/<データベース名>
+
+- flask shellコマンド
+- 環境変数FLASK_APPで指定したアプリのコンテキストで動作するPython対話環境を起動するコマンド
+
+
+== モデルの定義
+
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db/sample.db"
+db = SQLAlchemy(app)
+
+class ToDoItem(db.Model):
+  __tablename__ = "todoitems"
+  item_id = db.Column(db.Integer, primary_key=True)
+  title = db.Column(db.String(100), nullable=False)
+  done = db.Column(db.Boolean, nullable=False, default=False)#
+

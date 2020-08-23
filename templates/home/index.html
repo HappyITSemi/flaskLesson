@@ -1,0 +1,71 @@
+{% extends 'home/base.html' %}
+{% block title %}Homeインデックス{% endblock %}
+
+{% block dashboard %}
+    <a href="#" class="list-group-item list-group-item-action active">
+        <img src="/static/bootstrap-icons/icons/layout-text-window-reverse.svg" alt="" width="18" height="18"/>
+        　ダッシュボード
+    </a>
+{% endblock %}
+
+{% block todo_menu %}
+    <a href="#" class="list-group-item list-group-item-action">
+        <img src="/static/bootstrap-icons/icons/shop.svg" alt="" width="18" height="18"/>
+        　Todo 一覧
+    </a>
+{% endblock %}
+
+{% block api_menu %}
+    <a href="#" class="list-group-item list-group-item-action">
+        <img src="/static/bootstrap-icons/icons/diagram-3.svg" alt="" width="18" height="18"/>
+        　Todo API
+    </a>
+{% endblock %}
+
+{% block admin_menu %}
+    <a href="#" class="list-group-item list-group-item-action">
+        <img src="/static/bootstrap-icons/icons/person-plus.svg" alt="" width="18" height="18"/>
+        　顧客管理
+    </a>
+{% endblock %}
+
+{% block email_menu %}
+    <a href="#" class="list-group-item list-group-item-action">
+        <img src="/static/bootstrap-icons/icons/envelope.svg" alt="" width="18" height="18"/>
+        　メール
+    </a>
+{% endblock %}
+
+{% block drill %}
+    <a href="#" class="list-group-item list-group-item-action">
+        <img src="/static/bootstrap-icons/icons/person-check.svg" alt="" width="18" height="18"/>
+        　演習
+    </a>
+{% endblock %}
+
+{% block login %}
+    <a href="#" class="list-group-item list-group-item-action">
+        <form class="" method="get" action="/login">
+            <img src="/static/bootstrap-icons/icons/person.svg" alt="" width="18" height="18"/>
+            <button class="btn btn-outline-primary" type="submit">ログイン</button>
+        </form>
+    </a>
+{% endblock %}
+
+{% block center %}
+    <div class="col-lg-7 border order-2">
+        <br/>
+        Todoは  件
+        <div class="card card-default">
+            <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <a href=" #">リンク</a>
+                    </li>
+                    <li class="list-group-item">
+                        Todoは・・・
+                    </li>
+            </ul>
+        </div>
+
+    </div>
+{% endblock %}

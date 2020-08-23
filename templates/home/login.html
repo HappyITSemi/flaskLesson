@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+          integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand">Logo</a>
+        <form class="d-flex">
+            <input class="form-control mr-3" type="search" placeholder="検索ワードの入力" aria-label="検索">
+            　<button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3 border order-1">
+        </div>
+        <div class="col-lg-7 border order-2">
+            <h5>■ログイン</h5>
+            <form method="post" action="/login">
+                <input type="text" class="form-control" placeholder="名前" name="username"/>
+                <input type="text" class="form-control" placeholder="メール" name="email"/><br/>
+                <input type="submit" class="btn btn-primary" value="送信"/><br/>
+            </form>
+        </div>
+                <div class="col-lg-2 border order-3">
+                </div>
+    </div>
+</div>
+</body>
+</html>

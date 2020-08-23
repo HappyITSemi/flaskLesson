@@ -1,0 +1,87 @@
+{% extends 'todo/base.html' %}
+{% block title %}Homeインデックス{% endblock %}
+
+{% block dashboard %}
+    <a href="#" class="list-group-item list-group-item-action active">
+        <img src="/static/bootstrap-icons/icons/layout-text-window-reverse.svg" alt="" width="18" height="18"/>
+        　ダッシュボード
+    </a>
+{% endblock %}
+
+{% block todo_menu %}
+    <a href="#" class="list-group-item list-group-item-action">
+        <img src="/static/bootstrap-icons/icons/shop.svg" alt="" width="18" height="18"/>
+        　Todo
+    </a>
+{% endblock %}
+
+{% block api_menu %}
+    <a href="#" class="list-group-item list-group-item-action">
+        <img src="/static/bootstrap-icons/icons/diagram-3.svg" alt="" width="18" height="18"/>
+        　API
+    </a>
+{% endblock %}
+
+{% block admin_menu %}
+    <a href="#" class="list-group-item list-group-item-action">
+        <img src="/static/bootstrap-icons/icons/person-plus.svg" alt="" width="18" height="18"/>
+        　Admin
+    </a>
+{% endblock %}
+
+{% block email_menu %}
+    <a href="#" class="list-group-item list-group-item-action">
+        <img src="/static/bootstrap-icons/icons/envelope.svg" alt="" width="18" height="18"/>
+        　メール
+    </a>
+{% endblock %}
+
+{% block drill %}
+    <a href="#" class="list-group-item list-group-item-action">
+        <img src="/static/bootstrap-icons/icons/person-check.svg" alt="" width="18" height="18"/>
+        　演習
+    </a>
+{% endblock %}
+
+{% block login %}
+    <a href="#" class="list-group-item list-group-item-action">
+        <form class="" method="get" action="/login">
+            <img src="/static/bootstrap-icons/icons/person.svg" alt="" width="18" height="18"/>
+            <button class="btn btn-outline-primary" type="submit">ログイン</button>
+        </form>
+    </a>
+{% endblock %}
+
+{% block center %}
+    <div class="col-lg-7 border order-2">
+        <br/>
+        {% for todo in todos %}
+            todo= {{ todo }}
+        <ul>
+            <li>todo.id = {{ todo.id }}</li>
+            <li>todo.name = {{ todo.name }}</li>
+            <li>todo.due_date = {{ todo.due_date }}</li>
+            <li>todo.due_created_at = {{ todo.created_at }}</li>
+        </ul>
+        {% endfor %}
+        ・・・<br/><br/>
+        {% for lst in lists %}
+        <ul>
+            <li>todoCategory.id = {{ lst.id }}</li>
+            <li>todoCategory.name = {{ lst.name }}</li>
+            <li>todoCategory.due = {{ lst.due }}</li>
+        </ul>
+        {% endfor %}
+        <div class="card card-default">
+            <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <a href=" #">リンク</a>
+                    </li>
+                    <li class="list-group-item">
+                        Todoは・・・
+                    </li>
+            </ul>
+        </div>
+
+    </div>
+{% endblock %}
