@@ -1,13 +1,12 @@
 from datetime import datetime
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
+from sqlalchemy.orm import relationship, backref
+from setting import Base
 
 
-Base = declarative_base()
-
-
-class TodoCategory(Base):
-    __tablename__ = 'todo_category'
+class Category(Base):
+    __tablename__ = 'category'
+    __table_args__ = {"schema": "public"}
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(24))
@@ -16,6 +15,7 @@ class TodoCategory(Base):
 
 class Todo(Base):
     __tablename__ = 'todo'
+    __table_args__ = {"schema": "public"}
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(24), nullable=False)
@@ -23,4 +23,6 @@ class Todo(Base):
     due_date = Column(DateTime, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, onupdate=datetime.utcnow)
-
+    category_id = Column(Integer)
+    # category_id = Column(Integer, ForeignKey('category.id'))
+    # category = relationship('Category', backref='todo', uselist=False)

@@ -9,9 +9,9 @@
 {% endblock %}
 
 {% block todo_menu %}
-    <a href="#" class="list-group-item list-group-item-action">
+    <a href="{{url_for('todo.todo_index')}}" class="list-group-item list-group-item-action">
         <img src="/static/bootstrap-icons/icons/shop.svg" alt="" width="18" height="18"/>
-        　Todo 一覧
+        　Todo
     </a>
 {% endblock %}
 
@@ -57,15 +57,17 @@
         <br/>
         Todoは  件
         <div class="card card-default">
-            <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <a href=" #">リンク</a>
-                    </li>
-                    <li class="list-group-item">
-                        Todoは・・・
-                    </li>
-            </ul>
-        </div>
+            {% for user in users %}
+            {{ user.id }}/{{ user.name }}<br/>
+            {% endfor %}<br/>
 
+            {% for adr in addresses %}
+            {{ adr.address }}/{{ adr.user_id }}<br/>
+            {% endfor %}<br/>
+
+            {% for dt in dts %}
+            {{ dt.User.id}}/{{ dt.User.name}}/{{ dt.Address.address }}<br/>
+            {% endfor %}<br/>
+        </div>
     </div>
 {% endblock %}
